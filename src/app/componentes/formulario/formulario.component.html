@@ -1,0 +1,25 @@
+<div class="container-formulario">
+    <h2>Formulário</h2>
+    <form class="section-formulario" [formGroup]="formulario" (ngSubmit)="adicionarDados()" (click)="limparMensagem()">
+        <div class="campo" (click)="limparMensagem()">
+            <label for="form-nome">Nome:</label>
+            <input formControlName="nome" id="form-nome" type="text">
+        </div>
+        <div class="campo">
+            <label for="form-data-nasc">Data de Nascimento:</label>
+            <!-- o ideal aqui era criar um pipe para formatar a data mas para efeitos de demonstração deixei a data no formato nativo -->
+            <input formControlName="dataNascimento" id="form-data-nasc" type="date">
+        </div>
+        <div class="campo">
+            <label for="form-classificacao">Classificação:</label>
+            <input formControlName="classificacao" id="form-classificacao" type="text">
+        </div>
+        <div class="submit">
+            <button class="botao-submit" type="submit">{{ textoBotao }} </button>
+        </div>      
+    </form>
+
+    <div class="section-mensagem" [hidden]="!mensagemUsuario">
+        {{ mensagemUsuario}}
+    </div>
+</div>

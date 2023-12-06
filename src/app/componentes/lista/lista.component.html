@@ -1,0 +1,18 @@
+<!-- fiz uma lista simples somente para exibir os dados -->
+
+<div class="container-lista">
+    <h2>Lista</h2>
+    <ul>
+      <li *ngFor="let dado of dados" class="dado-lista" (click)="selecionarDado(dado)" [class.selecionado]="dado === dadoSelecionado">
+        Nome: {{ dado.nome }} <br> Nascimento: {{ dado.dataNascimento }} <br> Classificação: {{ dado.classificacao }}
+
+        <div class="botoes">
+            <button *ngIf="dado === dadoSelecionado" (click)="deletarDado(dado)">Deletar</button>
+        </div>
+      </li>
+    </ul>
+    <div class="section-mensagem" [hidden]="!mensagemUsuario">
+        {{ mensagemUsuario}}
+    </div>
+  </div>
+  
